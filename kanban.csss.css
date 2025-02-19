@@ -1,0 +1,238 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+/* Navbar statique à gauche */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    background-color: #333;
+    padding: 20px;
+    color: white;
+    height: 100%;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    background-color: #444;
+}
+
+.navbar a:hover {
+    background-color: #666;
+}
+
+/* Conteneur Kanban (décalé à droite de la navbar) */
+.kanban-container {
+    margin-left: 220px; /* Décalage pour la navbar */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Colonnes Kanban agrandies */
+.column {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    width: 320px; /* Agrandir les colonnes */
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.column h2 {
+    font-size: 1.5rem; /* Augmenter la taille pour attirer l'attention */
+    font-weight: bold; /* Mettre en gras */
+    text-transform: uppercase; /* Majuscules */
+    color: white; /* Texte en blanc */
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre portée */
+    background-color: #333; /* Fond sombre pour faire ressortir le texte */
+    transition: all 0.3s ease; /* Effet dynamique au survol */
+}
+
+/* Effet au survol sur le titre des colonnes */
+.column h2:hover {
+    background-color: #555;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Titres des colonnes avec couleurs personnalisées */
+.column[data-id="todo"] h2 {
+    background-color: #FF6B6B; /* Rouge pour "À faire" */
+}
+
+.column[data-id="in-progress"] h2 {
+    background-color: #FFD93D; /* Jaune pour "En cours" */
+}
+
+.column[data-id="done"] h2 {
+    background-color: #6BCB77; /* Vert pour "Terminé" */
+}
+
+.column[data-id="archived"] h2 {
+    background-color: #1E90FF; /* Bleu pour "Archivé" */
+}
+
+/* Tâches */
+.task-list {
+    flex-grow: 1;
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: 10px;
+}
+
+.task {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    width: 100%;
+}
+
+/* Bouton supprimer (Stylisé) */
+.remove-column {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.remove-column:hover {
+    background-color: #d32f2f;
+}
+
+/* Style général des boutons */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Bouton "Ajouter une colonne" */
+#add-column {
+    background-color: #4CAF50; /* Vert */
+    color: white;
+    margin-bottom: 10px;
+}
+
+#add-column:hover {
+    background-color: #45a049;
+}
+
+/* Bouton "Réinitialiser le tableau" */
+#reset-board {
+    background-color: #f44336; /* Rouge */
+    color: white;
+    margin-bottom: 10px;
+}
+
+#reset-board:hover {
+    background-color: #e53935;
+}
+
+/* Tableau Succès à droite */
+#success-table {
+    position: fixed !important;
+    top: 20px !important;   /* Ajuster la distance depuis le haut */
+    right: 20px !important;  /* Ajuster la distance depuis la droite */
+    width: 300px !important;
+    padding: 20px !important;
+    background-color: #D8B3D6 !important; /* Mauve clair */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 8px !important;
+    z-index: 10000 !important;
+}
+
+#success-table h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#success-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#success-table th,
+#success-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#success-table th {
+    background-color: #9B59B6 !important; /* Mauve foncé pour l'en-tête */
+    color: white;
+}
+
+#success-table td {
+    background-color: #f9f9f9;
+}
+
+#success-table tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+/* Personnalisation spécifique de la navbar si besoin */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    background-color: #444;
+}
+
+.navbar a:hover {
+    background-color: #666;
+}
+
+/* Bouton ajouter une tâche */
+.add-task {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.add-task:hover {
+    background-color: #45a049;
+}
+

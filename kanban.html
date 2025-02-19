@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Coloré</title>
+    <link rel="stylesheet" href="C:\Users\lione\Desktop\kanbans\kanban.csss.css">
+</head>
+<body>
+    <!-- Navbar statique à gauche -->
+    <div class="navbar">
+        <a href="#">Dashboard</a>
+        <a href="#">Projets</a>
+        <a href="#">Tâches</a>
+        <a href="#">Statistiques</a>
+        <a href="#">Paramètres</a>
+    </div>
+
+    <!-- Contenu principal -->
+    <div style="margin-left: 220px; padding: 20px; display: flex; justify-content: space-between;">
+        <div>
+            <h1>Tableau Kanban</h1>
+
+            <button id="add-column">+ Ajouter une colonne</button>
+            <button id="reset-board">Réinitialiser le tableau</button> <!-- Bouton pour réinitialiser -->
+
+            <div class="kanban" id="kanban-board">
+                <div class="column" data-id="todo" style="background-color: #FF6B6B;">
+                    <h2 class="todo">À faire</h2>
+                    <div class="task-list" id="todo"></div>
+                    <button class="add-task" onclick="addTask('todo')">+ Ajouter</button>
+                    <button class="remove-column" onclick="removeColumn('todo')">Supprimer</button> <!-- Supprimer -->
+                </div>
+                <div class="column" data-id="in-progress" style="background-color: #FFD93D;">
+                    <h2 class="in-progress">En cours</h2>
+                    <div class="task-list" id="in-progress"></div>
+                    <button class="add-task" onclick="addTask('in-progress')">+ Ajouter</button>
+                    <button class="remove-column" onclick="removeColumn('in-progress')">Supprimer</button> <!-- Supprimer -->
+                </div>
+                <div class="column" data-id="done" style="background-color: #6BCB77;">
+                    <h2 class="done">Terminé</h2>
+                    <div class="task-list" id="done"></div>
+                    <button class="add-task" onclick="addTask('done')">+ Ajouter</button>
+                    <button class="remove-column" onclick="removeColumn('done')">Supprimer</button> <!-- Supprimer -->
+                </div>
+                <div class="column" data-id="archived" style="background-color: #1E90FF;">
+                    <h2 class="archived">Archivé</h2>
+                    <div class="task-list" id="archived"></div>
+                    <button class="add-task" onclick="addTask('archived')">+ Ajouter</button>
+                    <button class="remove-column" onclick="removeColumn('archived')">Supprimer</button> <!-- Supprimer -->
+                </div>
+            </div>
+        </div>
+
+        <div id="success-table">
+            <h2>Succès</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Élément</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Exemple 1</td>
+                        <td>Complété</td>
+                    </tr>
+                    <tr>
+                        <td>Exemple 2</td>
+                        <td>En cours</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    <script src="C:\Users\lione\Desktop\kanbans\kanban.js"></script>
+</body>
+</html>
